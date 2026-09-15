@@ -1,0 +1,7 @@
+# Generated deployment output
+netlify-dist/
+netlify-drop/
+sku-netlify-drop.zip
+
+# Local runtime/test output
+asset-backfill-report.json

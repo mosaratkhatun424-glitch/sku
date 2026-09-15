@@ -9,7 +9,7 @@ const maxOptionalPdfBytes = 1024 * 1024;
 
 fs.rmSync(publish, { recursive: true, force: true });
 fs.mkdirSync(publish, { recursive: true });
-copyFile(homepage, path.join(publish, 'index.html'));
+copyHtml(homepage, path.join(publish, 'index.html'));
 copyDirectory(path.join(mirror, 'pages'), publish, () => true);
 copyDirectory(path.join(mirror, 'static'), publish, source => {
   const relative = path.relative(path.join(mirror, 'static'), source);
@@ -25,8 +25,37 @@ function copyDirectory(source, destination, shouldCopy) {
     const sourcePath = path.join(source, entry.name);
     const destinationPath = path.join(destination, entry.name);
     if (entry.isDirectory()) copyDirectory(sourcePath, destinationPath, shouldCopy);
-    else if (shouldCopy(sourcePath)) copyFile(sourcePath, destinationPath);
+    else if (shouldCopy(sourcePath)) {
+      if (isHtmlRoute(sourcePath)) copyHtml(sourcePath, destinationPath);
+      else copyFile(sourcePath, destinationPath);
+    }
   }
+}
+
+function isHtmlRoute(file) {
+  return path.extname(file).toLowerCase() === '.html' || path.extname(file) === '';
+}
+
+function copyHtml(source, destination) {
+  const html = localize(fs.readFileSync(source, 'utf8'));
+  fs.mkdirSync(path.dirname(destination), { recursive: true });
+  fs.writeFileSync(destination, html, 'utf8');
+}
+
+function localize(html) {
+  const localized = html.replaceAll('https://www.skuindia.ac.in', '').replaceAll('http://skuindia.ac.in', '').replaceAll('https://skuindia.ac.in', '');
+  const styles = `<style id="local-clone-overrides">
+    .footer { background: #fff url('/Content/images/footer.jpg') center center / cover no-repeat !important; color: #333 !important; }
+    .info__box { min-height: 170px !important; height: 170px !important; padding: 20px !important; overflow: hidden; background-size: cover !important; background-position: center !important; }
+    .box__highlight__x { background-image: linear-gradient(rgb(82 51 40 / 3%), rgb(33 33 33 / 85%)), url('/Content/web/university/infra/sku-infra-1.webp') !important; }
+    .box__virtualtour { background: linear-gradient(rgb(82 51 40 / 3%), rgb(33 33 33 / 85%)), url('/Content/web/university/infra/sku-infra-2.webp') center / cover !important; }
+    .box__registration { background-image: linear-gradient(rgb(82 51 40 / 3%), rgb(52 35 29 / 85%)), url('/Content/web/university/infra/sku-infra-3.webp') !important; }
+    .box__admission_enquiry { background-image: linear-gradient(rgb(61 135 237 / 35%), rgb(9 100 153 / 88%)), url('/Content/web/university/infra/sku-infra-4.webp') !important; }
+    .box__syllabus { background-image: linear-gradient(rgb(82 51 40 / 3%), rgb(52 35 29 / 85%)), url('/Content/web/university/infra/sku-infra-5.webp') !important; }
+    .box__exam__timetable { background-image: linear-gradient(#ffffff00, rgb(219 168 14 / 93%)), url('/Content/web/university/infra/sku-infra-1.webp') !important; }
+    .box__media__gallery { background-image: linear-gradient(rgb(82 51 40 / 3%), rgb(28 81 30 / 85%)), url('/Content/web/university/infra/sku-infra-2.webp') !important; }
+  </style>`;
+  return localized.includes('</body>') ? localized.replace('</body>', `${styles}</body>`) : `${localized}${styles}`;
 }
 
 function copyFile(source, destination) {
