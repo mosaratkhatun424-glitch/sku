@@ -8,6 +8,10 @@
     :root { --navy:#153158; --red:#c52317; --blue:#1769aa; --line:#d9e0e8; --paper:#fff; --soft:#f3f6fa; }
     * { box-sizing:border-box; }
     body { margin:0; background:var(--soft); color:#17202a; font-family:Arial,Helvetica,sans-serif; }
+    .site-header { background:#fff; border-bottom:1px solid #e5e9ef; display:flex; align-items:center; gap:32px; padding:12px clamp(16px,4vw,54px); position:sticky; top:0; z-index:2; }
+    .brand img { width:210px; max-width:35vw; display:block; }
+    .site-header nav { display:flex; flex-wrap:wrap; gap:24px; align-items:center; }
+    .site-header nav a { color:#153158; font-weight:700; text-decoration:none; font-size:15px; }
     .result-shell { max-width:1180px; margin:42px auto; padding:0 20px; }
     .result-header { background:var(--navy); color:#fff; padding:28px clamp(20px,4vw,48px); border-radius:6px 6px 0 0; }
     .result-header h1 { margin:0 0 8px; font-size:clamp(24px,3vw,38px); }
@@ -31,10 +35,16 @@
     th:nth-child(2), td:nth-child(2) { text-align:left; }
     tfoot td { font-weight:700; }
     .note { margin-top:18px; color:#687586; font-size:13px; }
-    @media (max-width:700px) { .result-shell { margin:20px auto; padding:0 12px; } .result-form { grid-template-columns:1fr; gap:14px; } .result-panel { padding:20px 16px; } button { width:100%; } .result-meta { align-items:flex-start; flex-direction:column; } .download { width:100%; } }
+    .site-footer { background:#fff url('/Content/images/footer.jpg') center / cover; border-top:1px solid #e1e6ec; color:#153158; padding:30px 20px 18px; text-align:center; }
+    .site-footer p { margin:5px 0; color:#596575; font-size:14px; }
+    @media (max-width:700px) { .site-header { align-items:flex-start; flex-direction:column; gap:12px; } .site-header nav { gap:12px 16px; } .brand img { width:190px; max-width:80vw; } .result-shell { margin:20px auto; padding:0 12px; } .result-form { grid-template-columns:1fr; gap:14px; } .result-panel { padding:20px 16px; } button { width:100%; } .result-meta { align-items:flex-start; flex-direction:column; } .download { width:100%; } }
   </style>
 </head>
 <body>
+  <header class="site-header">
+    <a href="/" class="brand"><img src="/Content/web/university/sku-logo-header.png" alt="Shri Krishna University"></a>
+    <nav aria-label="Primary navigation"><a href="/about-university">About</a><a href="/faculty/engineering-and-technology">Faculty</a><a href="/Search-Course-Syllabus">Academics</a><a href="/Course-admission/1">Admissions</a><a href="/research-and-development-cell">R&amp;D/Research</a><a href="/event-gallery">Life@SKU</a><a href="/contact-us">Information Corner</a><a href="/training-and-placements">Placement</a></nav>
+  </header>
   <main class="result-shell">
     <header class="result-header">
       <h1>Student Result</h1>
@@ -53,6 +63,7 @@
       </section>
     </section>
   </main>
+  <footer class="site-footer"><strong>Shri Krishna University</strong><p>Vidya Sarvasva Pujnam, N-H 86, Village Chauka, Sagar Road, Chhatarpur, Madhya Pradesh</p><p>© Shri Krishna University. All rights reserved.</p></footer>
   <script>
     document.getElementById('result-form').addEventListener('submit', function (event) {
       event.preventDefault();

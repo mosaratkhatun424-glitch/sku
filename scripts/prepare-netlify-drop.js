@@ -27,7 +27,7 @@ function copyDirectory(source, destination, shouldCopy) {
     if (sourcePath === path.join(mirror, 'pages', 'index.html')) continue;
     if (entry.isDirectory()) copyDirectory(sourcePath, destinationPath, shouldCopy);
     else if (shouldCopy(sourcePath)) {
-      if (isHtmlRoute(sourcePath)) copyHtml(sourcePath, destinationPath);
+      if (isHtmlRoute(sourcePath)) copyHtml(sourcePath, path.extname(sourcePath) ? destinationPath : path.join(destinationPath, 'index.html'));
       else copyFile(sourcePath, destinationPath);
     }
   }
