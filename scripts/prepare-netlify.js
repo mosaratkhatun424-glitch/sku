@@ -19,6 +19,7 @@ function copyDirectory(source, destination) {
   for (const entry of fs.readdirSync(source, { withFileTypes: true })) {
     const sourcePath = path.join(source, entry.name);
     const destinationPath = path.join(destination, entry.name);
+    if (sourcePath === path.join(mirror, 'pages', 'index.html')) continue;
     if (entry.isDirectory()) { fs.mkdirSync(destinationPath, { recursive: true }); copyDirectory(sourcePath, destinationPath); }
     else if (isHtmlRoute(sourcePath)) copyHtml(sourcePath, destinationPath);
     else copyFile(sourcePath, destinationPath);
