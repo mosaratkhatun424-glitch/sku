@@ -1,0 +1,16 @@
+{
+  "name": "sku-website-local-clone",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Local mirror baseline for Shri Krishna University",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "check-links": "node scripts/check-links.js",
+    "crawl": "node scripts/crawl.js",
+    "backfill-assets": "node scripts/backfill-assets.js",
+    "generate-result-pdf": "node scripts/generate-result-pdf.js",
+    "build:netlify": "npm run generate-result-pdf && node scripts/prepare-netlify.js",
+    "build:netlify-drop": "npm run generate-result-pdf && node scripts/prepare-netlify-drop.js"
+  }
+}

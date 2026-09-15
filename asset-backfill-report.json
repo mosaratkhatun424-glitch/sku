@@ -1,0 +1,54 @@
+{
+  "attempted": 23,
+  "downloaded": 11,
+  "failures": [
+    {
+      "url": "/Content/web/acts-statutes/shri-krishna-university-act.pdf",
+      "error": "Command failed: curl.exe -L --fail --silent --show-error --max-time 15 --connect-timeout 5 -A SKU-local-clone/1.0 -o C:\\Users\\safet\\OneDrive\\Desktop\\SKU\\mirror-full\\static\\Content\\web\\acts-statutes\\shri-krishna-university-act.pdf https://www.skuindia.ac.in/Content/web/acts-statutes/shri-krishna-university-act.pdf\ncurl: (22) The requested URL returned error: 404\r\n"
+    },
+    {
+      "url": "/Content/web/collaborations/Vikram University",
+      "error": "Command failed: curl.exe -L --fail --silent --show-error --max-time 15 --connect-timeout 5 -A SKU-local-clone/1.0 -o C:\\Users\\safet\\OneDrive\\Desktop\\SKU\\mirror-full\\static\\Content\\web\\collaborations\\Vikram University https://www.skuindia.ac.in/Content/web/collaborations/Vikram%20University\ncurl: (22) The requested URL returned error: 404\r\n"
+    },
+    {
+      "url": "/Content/web/promotional-banner/appy__job.jpg",
+      "error": "Command failed: curl.exe -L --fail --silent --show-error --max-time 15 --connect-timeout 5 -A SKU-local-clone/1.0 -o C:\\Users\\safet\\OneDrive\\Desktop\\SKU\\mirror-full\\static\\Content\\web\\promotional-banner\\appy__job.jpg https://www.skuindia.ac.in/Content/web/promotional-banner/appy__job.jpg\ncurl: (22) The requested URL returned error: 404\r\n"
+    },
+    {
+      "url": "/Content/Upload/Timetable/",
+      "error": "Command failed: curl.exe -L --fail --silent --show-error --max-time 15 --connect-timeout 5 -A SKU-local-clone/1.0 -o C:\\Users\\safet\\OneDrive\\Desktop\\SKU\\mirror-full\\static\\Content\\Upload\\Timetable\\ https://www.skuindia.ac.in/Content/Upload/Timetable/\ncurl: (22) The requested URL returned error: 403\r\n"
+    },
+    {
+      "url": "/Content/web/acts-statutes/shri-krishna-university-statutes.pdf",
+      "error": "Command failed: curl.exe -L --fail --silent --show-error --max-time 15 --connect-timeout 5 -A SKU-local-clone/1.0 -o C:\\Users\\safet\\OneDrive\\Desktop\\SKU\\mirror-full\\static\\Content\\web\\acts-statutes\\shri-krishna-university-statutes.pdf https://www.skuindia.ac.in/Content/web/acts-statutes/shri-krishna-university-statutes.pdf\ncurl: (22) The requested URL returned error: 404\r\n"
+    },
+    {
+      "url": "/Content/web/university/courses/computer%20science.jpg",
+      "error": "Command failed: curl.exe -L --fail --silent --show-error --max-time 15 --connect-timeout 5 -A SKU-local-clone/1.0 -o C:\\Users\\safet\\OneDrive\\Desktop\\SKU\\mirror-full\\static\\Content\\web\\university\\courses\\computer science.jpg https://www.skuindia.ac.in/Content/web/university/courses/computer%20science.jpg\ncurl: (28) Connection timed out after 5014 milliseconds\r\n"
+    },
+    {
+      "url": "/Content/web/university/courses/Faculty%20of%20Agriculture.jpg",
+      "error": "Command failed: curl.exe -L --fail --silent --show-error --max-time 15 --connect-timeout 5 -A SKU-local-clone/1.0 -o C:\\Users\\safet\\OneDrive\\Desktop\\SKU\\mirror-full\\static\\Content\\web\\university\\courses\\Faculty of Agriculture.jpg https://www.skuindia.ac.in/Content/web/university/courses/Faculty%20of%20Agriculture.jpg\ncurl: (28) Connection timed out after 5010 milliseconds\r\n"
+    },
+    {
+      "url": "/Content/web/university/courses/fashion-and-animation.jpg",
+      "error": "Command failed: curl.exe -L --fail --silent --show-error --max-time 15 --connect-timeout 5 -A SKU-local-clone/1.0 -o C:\\Users\\safet\\OneDrive\\Desktop\\SKU\\mirror-full\\static\\Content\\web\\university\\courses\\fashion-and-animation.jpg https://www.skuindia.ac.in/Content/web/university/courses/fashion-and-animation.jpg\ncurl: (28) Connection timed out after 5003 milliseconds\r\n"
+    },
+    {
+      "url": "/Content/web/university/courses/nursing.jpg",
+      "error": "Command failed: curl.exe -L --fail --silent --show-error --max-time 15 --connect-timeout 5 -A SKU-local-clone/1.0 -o C:\\Users\\safet\\OneDrive\\Desktop\\SKU\\mirror-full\\static\\Content\\web\\university\\courses\\nursing.jpg https://www.skuindia.ac.in/Content/web/university/courses/nursing.jpg\ncurl: (28) Connection timed out after 5006 milliseconds\r\n"
+    },
+    {
+      "url": "/Content/web/ordinance/Second Ordinance (1).pdf",
+      "error": "Command failed: curl.exe -L --fail --silent --show-error --max-time 15 --connect-timeout 5 -A SKU-local-clone/1.0 -o C:\\Users\\safet\\OneDrive\\Desktop\\SKU\\mirror-full\\static\\Content\\web\\ordinance\\Second Ordinance (1).pdf https://www.skuindia.ac.in/Content/web/ordinance/Second%20Ordinance%20(1).pdf\ncurl: (22) The requested URL returned error: 404\r\n"
+    },
+    {
+      "url": "/Content/web/annual-report/shri-krishna-university-annual-report-2022-23.pdf",
+      "error": "Command failed: curl.exe -L --fail --silent --show-error --max-time 15 --connect-timeout 5 -A SKU-local-clone/1.0 -o C:\\Users\\safet\\OneDrive\\Desktop\\SKU\\mirror-full\\static\\Content\\web\\annual-report\\shri-krishna-university-annual-report-2022-23.pdf https://www.skuindia.ac.in/Content/web/annual-report/shri-krishna-university-annual-report-2022-23.pdf\ncurl: (28) Operation timed out after 15009 milliseconds with 9076736 out of 214761452 bytes received\r\n"
+    },
+    {
+      "url": "/Content/web/annual-report/shri-krishna-university-annual-report-2021-22.pdf",
+      "error": "Command failed: curl.exe -L --fail --silent --show-error --max-time 15 --connect-timeout 5 -A SKU-local-clone/1.0 -o C:\\Users\\safet\\OneDrive\\Desktop\\SKU\\mirror-full\\static\\Content\\web\\annual-report\\shri-krishna-university-annual-report-2021-22.pdf https://www.skuindia.ac.in/Content/web/annual-report/shri-krishna-university-annual-report-2021-22.pdf\ncurl: (28) Operation timed out after 15000 milliseconds with 12730368 out of 74217706 bytes received\r\n"
+    }
+  ]
+}

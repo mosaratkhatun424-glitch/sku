@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Result | Shri Krishna University</title>
+  <style>
+    :root { --navy:#153158; --red:#c52317; --blue:#1769aa; --line:#d9e0e8; --paper:#fff; --soft:#f3f6fa; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--soft); color:#17202a; font-family:Arial,Helvetica,sans-serif; }
+    .result-shell { max-width:1180px; margin:42px auto; padding:0 20px; }
+    .result-header { background:var(--navy); color:#fff; padding:28px clamp(20px,4vw,48px); border-radius:6px 6px 0 0; }
+    .result-header h1 { margin:0 0 8px; font-size:clamp(24px,3vw,38px); }
+    .result-header p { margin:0; opacity:.9; }
+    .result-panel { background:var(--paper); padding:clamp(20px,4vw,42px); box-shadow:0 8px 28px #15315818; }
+    .result-form { display:grid; grid-template-columns:1fr 1fr auto; gap:18px; align-items:end; }
+    label { display:block; color:var(--navy); font-weight:700; margin-bottom:8px; }
+    input { width:100%; border:1px solid #b8c4d2; border-radius:4px; min-height:44px; padding:10px 12px; font-size:16px; }
+    button, .download { border:0; border-radius:4px; background:var(--red); color:#fff; cursor:pointer; min-height:44px; padding:0 22px; font-weight:700; font-size:15px; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; }
+    button:hover, .download:hover { background:#9e1d14; }
+    .message { min-height:24px; margin:18px 0 0; color:var(--red); font-weight:700; }
+    .result-output { display:none; margin-top:28px; }
+    .result-output.visible { display:block; }
+    .result-meta { display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; align-items:center; margin-bottom:16px; }
+    .result-meta h2 { color:var(--navy); margin:0; font-size:24px; }
+    .result-meta p { margin:3px 0 0; color:#596575; }
+    .table-wrap { overflow-x:auto; border:1px solid #111; }
+    table { width:100%; min-width:760px; border-collapse:collapse; background:#fff; }
+    th, td { border:1px solid #111; padding:10px 12px; text-align:center; font-size:16px; }
+    thead th { background:#f8fafc; font-weight:700; }
+    th:nth-child(2), td:nth-child(2) { text-align:left; }
+    tfoot td { font-weight:700; }
+    .note { margin-top:18px; color:#687586; font-size:13px; }
+    @media (max-width:700px) { .result-shell { margin:20px auto; padding:0 12px; } .result-form { grid-template-columns:1fr; gap:14px; } .result-panel { padding:20px 16px; } button { width:100%; } .result-meta { align-items:flex-start; flex-direction:column; } .download { width:100%; } }
+  </style>
+</head>
+<body>
+  <main class="result-shell">
+    <header class="result-header">
+      <h1>Student Result</h1>
+      <p>Enter your enrollment number and date of birth to view your subject-wise result.</p>
+    </header>
+    <section class="result-panel">
+      <form class="result-form" id="result-form" novalidate>
+        <div><label for="enrollment">Enrollment No.</label><input id="enrollment" name="enrollment" autocomplete="off" placeholder="Enter enrollment number" required></div>
+        <div><label for="dob">Date of Birth</label><input id="dob" name="dob" type="date" required></div>
+        <button type="submit">View Result</button>
+      </form>
+      <p class="message" id="message" role="alert"></p>
+      <section class="result-output" id="result-output" aria-live="polite">
+        <div class="result-meta"><div><h2>Statement of Marks</h2><p>Enrollment No.: <strong>SKU266920325</strong> | Date of Birth: <strong>15-02-2002</strong></p></div><a class="download" href="/results/SKU266920325-result.pdf" download>Download Result PDF</a></div>
+        <div class="table-wrap"><table><thead><tr><th rowspan="2">Paper Code</th><th rowspan="2">Paper Name</th><th colspan="2">External Marks</th><th colspan="2">Sessional Marks</th><th colspan="2">Marks Obtain</th></tr><tr><th>Max. Marks</th><th>Marks Obt.</th><th>Max. Marks</th><th>Marks Obt.</th><th>Max. Marks</th><th>Marks Obt.</th></tr></thead><tbody><tr><td>CC 1</td><td>Gender, School &amp; Equality</td><td>75</td><td>52</td><td>25</td><td>17</td><td>100</td><td>69</td></tr><tr><td>CC 2</td><td>Educational Technology &amp; ICT</td><td>75</td><td>49</td><td>25</td><td>19</td><td>100</td><td>68</td></tr><tr><td>CC 3</td><td>Creating an Inclusive School</td><td>75</td><td>57</td><td>25</td><td>22</td><td>100</td><td>79</td></tr><tr><td>CC 4</td><td>Environmental Education</td><td>75</td><td>63</td><td>25</td><td>15</td><td>100</td><td>78</td></tr><tr><td>EPC 3</td><td>Understanding the Self</td><td>-</td><td>-</td><td>50</td><td>47</td><td>50</td><td>47</td></tr><tr><td>EPC 4</td><td>Understanding of ICT</td><td>-</td><td>-</td><td>50</td><td>41</td><td>50</td><td>41</td></tr></tbody><tfoot><tr><td colspan="2">TOTAL</td><td>300</td><td>221</td><td>200</td><td>161</td><td>500</td><td>382</td></tr></tfoot></table></div>
+        <p class="note">This local result is a static demonstration for the supplied enrollment number and date of birth.</p>
+      </section>
+    </section>
+  </main>
+  <script>
+    document.getElementById('result-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const enrollment = document.getElementById('enrollment').value.trim().toUpperCase();
+      const dob = document.getElementById('dob').value;
+      const message = document.getElementById('message');
+      const output = document.getElementById('result-output');
+      if (enrollment === 'SKU266920325' && dob === '2002-02-15') { message.textContent = ''; output.classList.add('visible'); return; }
+      output.classList.remove('visible');
+      message.textContent = 'The enrollment number or date of birth is incorrect.';
+    });
+  </script>
+</body>
+</html>
