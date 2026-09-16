@@ -17,6 +17,11 @@ const lines = [
   'TOTAL: 382 / 500'
 ];
 
+if (fs.existsSync(output) && !process.env.FORCE_GENERATE_RESULT_PDF) {
+  console.log(`Preserved existing ${output}`);
+  process.exit(0);
+}
+
 const stream = ['BT', '/F1 12 Tf', '72 760 Td', ...lines.flatMap((line, index) => [index ? '0 -22 Td' : '', `(${escapePdf(line)}) Tj`]).filter(Boolean), 'ET'].join('\n');
 const objects = [
   '<< /Type /Catalog /Pages 2 0 R >>',
